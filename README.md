@@ -1,5 +1,7 @@
 # Add Build Info to React App by creating src/buildInfo.ts with npm version and date
 
+https://github.com/coding-to-music/add-build-info-to-react-app
+
 By John M. Wargo https://johnwargo.com/
 
 From this
@@ -116,46 +118,46 @@ In an earlier article, I showed how to access build information in an Ionic appl
 
 ReactJS projects use node-based tooling like most web-based frameworks, so they already have an easy to update place to maintain the application’s version number - in the project’s package.json file. Here’s a stripped-down version of the package.json file from a new project I just created:
 
+```java
 {
-"name": "react-app",
-"version": "0.0.1",
-"private": true,
-"dependencies": {
-"@testing-library/jest-dom": "^5.11.4",
-"@testing-library/react": "^11.1.0",
-"@testing-library/user-event": "^12.1.10",
-"react": "^17.0.2",
-"react-dom": "^17.0.2",
-"react-scripts": "4.0.3",
-"web-vitals": "^1.0.1"
-},
-"scripts": {
-"start": "react-scripts start",
-"build": "react-scripts build",
-"test": "react-scripts test",
-"eject": "react-scripts eject"
-},
-"eslintConfig": {
-"extends": [
-"react-app",
-"react-app/jest"
-]
-},
-"browserslist": {
-"production": [
-">0.2%",
-"not dead",
-"not op_mini all"
-],
-"development": [
-"last 1 chrome version",
-"last 1 firefox version",
-"last 1 safari version"
-]
+ "name": "react-app",
+ "version": "0.0.1",
+ "private": true,
+ "dependencies": {
+ "@testing-library/jest-dom": "^5.11.4",
+ "@testing-library/react": "^11.1.0",
+ "@testing-library/user-event": "^12.1.10",
+ "react": "^17.0.2",
+ "react-dom": "^17.0.2",
+ "react-scripts": "4.0.3",
+ "web-vitals": "^1.0.1"
+ },
+ "scripts": {
+   "start": "react-scripts start",
+   "build": "react-scripts build",
+   "test": "react-scripts test",
+   "eject": "react-scripts eject"
+ },
+ "eslintConfig": {
+   "extends": [
+     "react-app",
+     "react-app/jest"
+   ]
+ },
+ "browserslist": {
+   "production": [
+     ">0.2%",
+     "not dead",
+     "not op_mini all"
+   ],
+ "development": [
+   "last 1 chrome version",
+   "last 1 firefox version",
+   "last 1 safari version"
+   ]
+ }
 }
-}
-
-````
+```
 
 Notice the `version` property, setup and ready for use.
 
@@ -163,7 +165,7 @@ Now, what I needed next was a simple and automated way to update that value ever
 
 ```java
 npm version patch
-````
+```
 
 When you execute that command from the Ionic project folder, it automatically increments the patch version (the final value in the version string):
 
@@ -208,7 +210,8 @@ To execute the module every time you do a build, just update the build entry in 
 "build": "react-build-info && react-scripts build",
 ```
 
-Displaying Build Information In the App
+## Displaying Build Information In the App
+
 Now that I had the build information generated and available in the app, it's time to use it in the app. What I wanted to do was display the app build information (version number and build date) on the app’s login page, but I decided instead to simply display it in the console at startup.
 
 To do this, I opened the project’s src/App.js file and added the following import statement to the top of the file:
